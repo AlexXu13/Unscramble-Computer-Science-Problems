@@ -23,16 +23,19 @@ September 2016.".
 cpu0=time.clock()
 wall0=time.time()
 
-maxnumber1=None
-maxnumber2=None
-maxtime=0
+code_dict={}
 for record in calls:
-    curtime=int(record[-1])
-    if curtime > maxtime:
-        maxtime=curtime
-        maxnumber1=record[0]
-        maxnumber2=record[1]
-print("{num1} and {num2} spent the longest time, {time} seconds, on the phone during September 2016.".format(num1=maxnumber1,num2=maxnumber2,time=maxtime))
+    if record[0] not in code_dict.keys():
+        code_dict[record[0]]=int(record[-1])
+    else:
+        code_dict[record[0]]+=int(record[-1])
+    if record[1] not in code_dict.keys():
+        code_dict[record[1]]=int(record[-1])
+    else:
+        code_dict[record[1]]+=int(record[-1])
+code=max(code_dict.items(),key=lambda item:item[1])
+
+print("{num1} spent the longest time, {time} seconds, on the phone during September 2016.".format(num1=code[0],time=code[1]))
         
 cpu1=time.clock()
 wall1=time.time()

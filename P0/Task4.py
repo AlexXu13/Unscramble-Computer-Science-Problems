@@ -39,10 +39,11 @@ for record in texts:
         notelemarkers.add(record[0])
     if record[1] not in notelemarkers:
         notelemarkers.add(record[1])
-
-for n in list(telemarkers):
+telemarkers=list(telemarkers)
+for n in telemarkers:
     if n in notelemarkers:
         telemarkers.remove(n)
+telemarkers=sorted(telemarkers)
 print("These numbers could be telemarketers:\n")
 for code in telemarkers:
     print(code)        

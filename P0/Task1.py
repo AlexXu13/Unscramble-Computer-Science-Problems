@@ -21,17 +21,17 @@ Print a message:
 cpu0=time.clock()
 wall0=time.time()
 
-numlist=[]
+numlist=set()
 for record in texts:
     if record[0] not in numlist:
-        numlist.append(record[0])
+        numlist.add(record[0])
     if record[1] not in numlist:
-        numlist.append(record[0])
+        numlist.add(record[0])
 for record in calls:
     if record[0] not in numlist:
-        numlist.append(record[0])
+        numlist.add(record[0])
     if record[1] not in numlist:
-        numlist.append(record[0])
+        numlist.add(record[0])
 print("There are {count} different telephone numbers in the records.".format(count=len(numlist)))
 
 cpu1=time.clock()
