@@ -1,29 +1,31 @@
-Task0: 
-Worst Case Big-O Notation:O(1)
-cpu time is 0.000230s . 
-wall time is 0.000000s .
- 
+Task0:
+    The operation includes: 
+    Four list index:O(1) 
+    So Worst Case Big-O Notation: O(1)
+     
 Task1: 
-This part has two for loops.
-Worst Case Big-O Notation: O(n)
-cpu time is 0.150403 s.
-wall time is 0.150000 s.
+    The operation includes: 
+    for loop1 includes 2 set add O(1): O(2n)
+    for loop2 includes 2 set add O(1): O(2n)
+    one length : O(1)
+    So Worst Case Big-O Notation: O(n)
  
-Task2: 
-This part has one for loop and a search.
-Worst Case Big-O Notation:O(n)
-cpu time is 0.002815 s.
-wall time is 0.003000 s.
+Task2:
+    The operation includes: 
+    One for loop includes two "k in d" of dictionary O(1): O(2*2*n)
+    one dict max: O(n)
+    So Worst Case Big-O Notation: O(n)
+
  
 Task3: 
-This part has two for loop and a sort.
-Worst Case Big-O Notation:O(nlog(n))
-cpu time is 0.002366 s.
-wall time is 0.002000 s.
+    The operation includes: 
+    One for loop : includes 7 set operations O(7n)
+    one list sorted: O(nlog(n))
+    So Worst Case Big-O Notation: O(nlog(n))
 
 
 Task4: 
-This part has four for loop and a sort.
-Worst Case Big-O Notation:O(nlog(n))
-cpu time is 0.004744 .
-wall time is 0.005000 .
+    The operation includes: 
+    four for loop : includes set operations O(4n)
+    one list sorted: O(nlog(n))
+    So Worst Case Big-O Notation: O(nlog(n))

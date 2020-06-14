@@ -4,11 +4,11 @@ It's ok if you don't understand how to read files.
 """
 import time
 import csv
-with open(r'G:/datastructure/P0/P0/texts.csv', 'r') as f:
+with open('./texts.csv', 'r') as f:
     reader = csv.reader(f)
     texts = list(reader)
 
-with open('G:/datastructure/P0/P0/calls.csv', 'r') as f:
+with open('./calls.csv', 'r') as f:
     reader = csv.reader(f)
     calls = list(reader)
 
@@ -23,15 +23,11 @@ wall0=time.time()
 
 numlist=set()
 for record in texts:
-    if record[0] not in numlist:
-        numlist.add(record[0])
-    if record[1] not in numlist:
-        numlist.add(record[0])
+    numlist.add(record[0])
+    numlist.add(record[1])
 for record in calls:
-    if record[0] not in numlist:
-        numlist.add(record[0])
-    if record[1] not in numlist:
-        numlist.add(record[0])
+    numlist.add(record[0])
+    numlist.add(record[1])
 print("There are {count} different telephone numbers in the records.".format(count=len(numlist)))
 
 cpu1=time.clock()

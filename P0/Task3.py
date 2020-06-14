@@ -4,11 +4,11 @@ It's ok if you don't understand how to read files.
 """
 import time
 import csv
-with open(r'G:/datastructure/P0/P0/texts.csv', 'r') as f:
+with open('./texts.csv', 'r') as f:
     reader = csv.reader(f)
     texts = list(reader)
 
-with open('G:/datastructure/P0/P0/calls.csv', 'r') as f:
+with open('./calls.csv', 'r') as f:
     reader = csv.reader(f)
     calls = list(reader)
 
@@ -46,24 +46,26 @@ The percentage should have 2 decimal digits
 cpu0=time.clock()
 wall0=time.time()
 #partA
-code_list=[]
-count=0
+code_list=set()
+fixedcount=0
+totalcount=0
 for record in calls:
     if "(080)" in record[0]:
+        totalcount+=1
         if record[1][:3]=="140":
-            code_list.append("140")
+            code_list.add("140")
         elif " " in record[1]:
-            code_list.append(record[1][:4])
+            code_list.add(record[1][:4])
         else:
-            code_list.append(record[1][1:4])
+            code_list.add(record[1].split(')')[0][1:])
             if "(080)" in record[1]:
-                count +=1
-code_set=sorted(list(set(code_list)))
+                fixedcount +=1
+code_set=sorted(list(code_list))
 print("The numbers called by people in Bangalore have codes:\n")
 for code in code_set:
     print(code)
 #partB
-print("{per:.2f} percent of calls from fixed lines in Bangalore are calls to other fixed lines in Bangalore.".format(per=count/len(code_list)*100))
+print("{per:.2f} percent of calls from fixed lines in Bangalore are calls to other fixed lines in Bangalore.".format(per=fixedcount/totalcount*100))
 
 
 cpu1=time.clock()

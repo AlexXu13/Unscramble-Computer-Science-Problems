@@ -4,11 +4,11 @@ It's ok if you don't understand how to read files.
 """
 import time
 import csv
-with open(r'G:/datastructure/P0/P0/texts.csv', 'r') as f:
+with open('./texts.csv', 'r') as f:
     reader = csv.reader(f)
     texts = list(reader)
 
-with open('G:/datastructure/P0/P0/calls.csv', 'r') as f:
+with open('./calls.csv', 'r') as f:
     reader = csv.reader(f)
     calls = list(reader)
 
@@ -27,23 +27,15 @@ The list of numbers should be print out one per line in lexicographic order with
 cpu0=time.clock()
 wall0=time.time()
 
-telemarkers=set()
-notelemarkers=set()
+telemarkets=set()
+for record in calls:   
+    telemarkets.add(record[0])
 for record in calls:
-    if record[0] not in telemarkers:
-        telemarkers.add(record[0])
-    if record[1] not in notelemarkers:
-        notelemarkers.add(record[1])
+    telemarkets.discard(record[1])
 for record in texts:
-    if record[0] not in notelemarkers:
-        notelemarkers.add(record[0])
-    if record[1] not in notelemarkers:
-        notelemarkers.add(record[1])
-telemarkers=list(telemarkers)
-for n in telemarkers:
-    if n in notelemarkers:
-        telemarkers.remove(n)
-telemarkers=sorted(telemarkers)
+    telemarkets.discard(record[0])
+    telemarkets.discard(record[1])
+telemarkers=sorted(list(telemarkets))
 print("These numbers could be telemarketers:\n")
 for code in telemarkers:
     print(code)        
